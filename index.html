@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Richard's Portfolio</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <style>
+      body {
+        background-color: #fff;
+        background-image:
+        linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+        linear-gradient(#eee .1em, transparent .1em);
+        background-size: 100% 1.65em;
+        
+        color: black;
+        font-family: "Lucida Console", Monospace;
+        
+        height: 100vh;
+        padding:0;
+        margin:0;
+      }
+      h1 {
+        color: black;
+        font-family: "Lucida Console", Monospace;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      h2 {
+        color: black;
+        font-family: "Lucida Console", Monospace;
+        padding-left: 100px;
+      }
+      /* Add a black background color to the top navigation */
+      .topnav {
+       background-color: rgba(84, 84, 82, .1);
+       overflow: hidden;
+       padding-left: 80px;
+      }
+
+      /* Style the links inside the navigation bar */
+      .topnav a {
+       font-family: "Lucida Console", Monospace;
+       float: left;
+       color: black;
+       text-align: center;
+       padding: 14px 16px;
+       text-decoration: none;
+       font-size: 17px;
+      }
+
+      /* Change the color of links on hover */
+      .topnav a:hover {
+       background-color: #ddd;
+       color: black;
+      }
+
+      /* Add a color to the active/current link */
+      .topnav a.active {
+       background-color: rgba(46, 155, 254, 0.25);
+       color: black;
+      }
+      
+      .top {
+        visibility: hidden;
+      }
+      
+      .intro {
+        overflow: hidden;
+        margin: -10px;
+      }
+      
+      .stockphoto {
+        margin-left: 25px;
+        margin-right: 25px;
+      }
+      
+      .scrollitem {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="welcome">
+      <h1>Welcome to Richard's Portfolio!</h1>
+    </div>
+    <div id="topp">
+      <h2>Richard's Portfolio</h2>
+      <div class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">About me</a>
+      </div> 
+      <div id="intro" style="padding-left: 80px;">
+         <img style="float: left;" class="stockphoto" src="person.jpg" alt="A person programming.">
+         <p class="introtext">Hello! Welcome to Richard's portfolio.</p>
+         <p class="introtext">This portfolio will contain a collection of the work accomplished by Richard in the past. Navigate around the website to see more.</p>
+         <p class="introtext">Check out the projects tab for a look at past projects.</p>
+         <p class="introtext">Check out the resume tab for my resume.</p>
+         <p class="introtext">Check out the about me tab for more information.</p>
+         <br>
+         <br>
+         <br>
+         <br>
+         <p class="introtext">Feel free to look around!</p>
+
+      </div>
+
+    </div>
+    <script>
+      $( "#topp" ).delay(0).fadeOut( 0, function() {
+        // Animation complete.
+      });
+      $( "#welcome" ).delay(300).fadeOut(1700, function() {
+        // Animation complete.
+      });
+      $( "#topp" ).delay(2000).fadeIn(500, function() {
+        // Animation complete.
+      });
+    </script>
+    
+  </body>
+</html>
