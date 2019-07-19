@@ -4,7 +4,11 @@
     <meta charset="utf-8">
     <title>Richard's Portfolio</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
+    <script src="js/jquery.scrollbar.min.js"></script>
     <style>
+
       body {
         background-color: #fff;
         background-image:
@@ -33,34 +37,52 @@
         font-family: "Lucida Console", Monospace;
         padding-left: 100px;
       }
+      
+      .chatArea {
+        position: fixed;
+        bottom: 5%;
+        right: 2.5%;
+        width: 150px;
+        height: 50px;
+        background-color: rgba(46, 155, 254, 0.25);
+        border: 2px solid;
+        border-color: rgba(84, 84, 82, .1);
+        border-radius: 20px;
+        -moz-border-radius: 20px;
+      }
+      
+      .chatArea p {
+        text-align: center;
+        cursor: default;
+      }
       /* Add a black background color to the top navigation */
       .topnav {
-       background-color: rgba(84, 84, 82, .1);
-       overflow: hidden;
-       padding-left: 80px;
+        background-color: rgba(84, 84, 82, .1);
+        overflow: hidden;
+        padding-left: 80px;
       }
-
+      
       /* Style the links inside the navigation bar */
       .topnav a {
-       font-family: "Lucida Console", Monospace;
-       float: left;
-       color: black;
-       text-align: center;
-       padding: 14px 16px;
-       text-decoration: none;
-       font-size: 17px;
+        font-family: "Lucida Console", Monospace;
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
       }
-
+      
       /* Change the color of links on hover */
       .topnav a:hover {
-       background-color: #ddd;
-       color: black;
+        background-color: #ddd;
+        color: black;
       }
-
+      
       /* Add a color to the active/current link */
       .topnav a.active {
-       background-color: rgba(46, 155, 254, 0.25);
-       color: black;
+        background-color: rgba(46, 155, 254, 0.25);
+        color: black;
       }
       
       .top {
@@ -81,6 +103,128 @@
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+      }
+      
+      .chat {
+        height: 75%;
+        overflow: auto;
+        position: relative;
+      }
+      
+      .actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .actions input {
+        font-family: "Lucida Console", Monospace;
+        position: absolute;
+        bottom: 5px;
+        height: 7.5%;
+        width: 98%;
+        outline: 0;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-radius: 15px;
+        border: 1px solid transparent;
+        text-indent: 10px;
+      }
+      
+      .messages div {
+        max-width: 60%;
+        margin: 5px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      
+      .messages .bot {
+        text-align: left;
+        margin-right: auto;
+        background: #001f3f;
+        color: white;
+      }
+      
+      .messages .self {
+        text-align: right;
+        margin-left: auto;
+        background: #DDD
+      }
+      
+      input[type="text"]::placeholder {  
+        text-align: center;
+        font-family: "Lucida Console", Monospace;
+      }
+      
+      
+      .scroll-wrapper {
+        overflow: hidden !important;
+        padding: 0 !important;
+        position: relative;
+      }
+      
+      .scroll-wrapper > .scroll-content {
+        border: none !important;
+        box-sizing: content-box !important;
+        height: auto;
+        left: 0;
+        margin: 0;
+        max-height: none;
+        max-width: none !important;
+        overflow: scroll !important;
+        padding: 0;
+        position: relative !important;
+        top: 0;
+        width: auto !important;
+      }
+      
+      .scroll-wrapper > .scroll-content::-webkit-scrollbar {
+        height: 0;
+        width: 0;
+      }
+      
+      .scroll-element {
+        display: none;
+      }
+      .scroll-element, .scroll-element div {
+        box-sizing: content-box;
+      }
+      
+      .scroll-element.scroll-x.scroll-scrollx_visible,
+      .scroll-element.scroll-y.scroll-scrolly_visible {
+        display: block;
+      }
+      
+      .scroll-element .scroll-bar,
+      .scroll-element .scroll-arrow {
+        cursor: default;
+      }
+      
+      .scroll-textarea {
+        border: 1px solid #cccccc;
+        border-top-color: #999999;
+      }
+      .scroll-textarea > .scroll-content {
+        overflow: hidden !important;
+      }
+      .scroll-textarea > .scroll-content > textarea {
+        border: none !important;
+        box-sizing: border-box;
+        height: 100% !important;
+        margin: 0;
+        max-height: none !important;
+        max-width: none !important;
+        overflow: scroll !important;
+        outline: none;
+        padding: 2px;
+        position: relative !important;
+        top: 0;
+        width: 100% !important;
+      }
+      .scroll-textarea > .scroll-content > textarea::-webkit-scrollbar {
+        height: 0;
+        width: 0;
       }
     </style>
   </head>
@@ -108,20 +252,131 @@
          <br>
          <br>
          <p class="introtext">Feel free to look around!</p>
-
       </div>
-
     </div>
+    <div class="chatArea" id="chatArea">
+      <p>Richard Bot!</p>
+    </div>
+  
+    <!--
+    <div class="chat">
+      <div class="messages"></div>
+      <div id="edge"></div>
+      <form class="actions">
+        <input type="text" placeholder="press enter to send…">
+      </form>
+    </div>
+    -->
+ 
     <script>
-      $( "#topp" ).delay(0).fadeOut( 0, function() {
-        // Animation complete.
-      });
-      $( "#welcome" ).delay(300).fadeOut(1700, function() {
-        // Animation complete.
-      });
-      $( "#topp" ).delay(2000).fadeIn(500, function() {
-        // Animation complete.
-      });
+      function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+      
+      function createCookie() {
+        document.cookie = "first" + "=" + "false" + ";";
+      }
+      
+      function firstRun() {
+        var first = getCookie("first");
+        if (first == "") {
+          createCookie();
+          return true;
+        }
+        return false;
+      }
+      
+      if(firstRun()) {
+        $( "#topp" ).delay(0).fadeOut( 0, function() {});
+        $( "#welcome" ).delay(300).fadeOut(1700, function() {});
+        $( "#topp" ).delay(2000).fadeIn(500, function() {});
+      } else {
+        $( "#welcome" ).hide();
+      }
+      
+      var chatDiv = $('#chatArea');
+      chatDiv.one( "click", function() {
+        chatDiv.width(325);
+        chatDiv.height(400);
+        
+        $(chatDiv).append(`<div class="chat" id="chat">
+          <div class="messages" id="messages"></div>
+            <div id="edge"></div>
+          </div>
+          <form class="actions" id="form" autocomplete="off">
+            <input type="text" id="input" placeholder="Press 'Enter' to send a message">
+          </form>`);
+          
+          $('#chat').scrollbar();
+          
+          startBot();
+          
+          chatDiv.draggable({ containment: "parent", refreshPosition: true});
+        });
+        
+        function startBot() {
+          let bot = new RiveScript();
+          
+          const responses = [
+            './responses.rive'
+          ];
+          
+          bot.loadFile(responses).then(botReady).catch(botNotReady);
+          
+          var message_container = $('#messages');
+          var form = $('#form');
+          var input = $('#input');
+              
+          form.on('keypress',function(e) {
+            if(e.which == 13) {
+              selfReply(input.val());
+              input.val('');
+            }
+          });
+          
+          function botReply(message) {
+            console.log('hello');
+            message_container.append(`<div class="bot">${message}</div>`);
+            location.href = "#edge";
+            input.focus();
+          }
+          
+          function selfReply(message) {
+              message_container.append(`<div class="self">${message}</div>`);
+              location.href = "#edge";
+              
+              setTimeout(function(){
+                bot.reply("local-user", message).then(function(reply) {
+                  botReply(reply);
+                });
+              }, 400);
+          }
+          
+          function botReady() {
+            bot.sortReplies();
+            setTimeout(function(){
+              botReply("Hello!");
+            }, 400);
+          }
+          
+          function botNotReady(err) {
+            console.log("An error has occurred.", err);
+          }
+        }
+        
+        
+            
     </script>
     
   </body>
