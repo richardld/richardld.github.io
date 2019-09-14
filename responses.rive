@@ -49,6 +49,9 @@
 - Hello to you too!
 - Hi!
 
++ help
+- Hello, this is Richard Bot. Ask me some questions!
+
 + (what are|tell me about|show me) some (projects|code|things|programs) you have (worked on|done|created)
 - I've done many projects. Click on the Projects tab to see them.
 
@@ -62,11 +65,17 @@
 - I've done many projects. Click on the Projects tab to see them.
 
 + (tell me about|introduce) yourself
-- My name is Richard and I created this website!
+- My name is Richard and I created this website! I am currently a student. Check out the About Me tab for more.
+
++ why should i hire you
+- That's a good question! Check out my resume tab to learn more.
 
 + how are you
 - I'm doing well.
 - I'm good!
+
++ can i talk to (real|actual|human|not bot) <bot name>
+- Of course. What contact information would you like? I have his phone number and email.
 
 + what are you doing
 - I'm not quite sure, I'll have to check.
@@ -75,21 +84,27 @@
 - I've done many projects. Click on the Projects tab to see them.
 
 + what is your [home|office|cell|phone|mobile] number
-- You can call me at: 1 (800) 555-1234.
+- I would prefer if you emailed me. You can reach me at all.richardliu@gmail.com.
+
++ number
+- I would prefer if you emailed me. You can reach me at all.richardliu@gmail.com.
 
 + (how|where) can i (contact|call|find|reach) you
-- You can call me at: 1 (800) 555-1234, or email me at abc@def.com.
+- You can email me at all.richardliu@gmail.com.
 
 + what is your preferred salary
-- Above $1 trillion per hour.
+- No comment.
 
-+ what is your email
-- My email is abc@def.com.
++ (what is your|your|what is|give me your|give me) email
+- My email is all.richardliu@gmail.com.
 
 + can i see your resume
 - Click on the resume tab to view my resume.
 
 + show me your resume
+- Click on the resume tab to view my resume.
+
++ resume
 - Click on the resume tab to view my resume.
 
 + what time is it
@@ -105,6 +120,12 @@
 
 + where are you at
 - I'm currently at the moon.
+
++ what can this bot do
+- This bot can tell you a little more about myself. Ask it questions about my past work.
+
++ what [work|things|tasks|programs] have you (created|done|made|finished) in the past
+- Check out the projects tab!
 
 + <bot name>
 - Yes?
@@ -166,6 +187,18 @@
 + this is a nice website
 - Thanks!
 - Thank you!
+
++ tell me a joke
+- What do you get when two giraffes collide? A Giraffic Jam!
+- What happened when the frog’s car broke down on the side of the road? It got toad away!
+- What’s the smartest animal? A fish because they stay in schools!
+- What kind of math do owls like? Owlgebra!
+- Why didn’t the elephant get the job he wanted? His qualifications were completely irrelephant.
+- How long do chickens work? Around the cluck!
+- Why are fish so good at watching their weight? Because they have lots of scales!
+- What does a dolphin say when he’s confused? Can you please be more Pacific?
+- Why do cows go to New York? To see the moosicals!
+- Where do orcas hear music? Orca-stras!
 
 + *
 - I'm not sure I understand you fully.

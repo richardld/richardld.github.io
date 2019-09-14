@@ -17,7 +17,7 @@
         background-size: 100% 1.65em;
         
         color: black;
-        font-family: "Lucida Console", Monospace;
+        font-family: "Helvetica", Sans-serif;
         
         height: 100vh;
         padding:0;
@@ -25,7 +25,7 @@
       }
       h1 {
         color: black;
-        font-family: "Lucida Console", Monospace;
+        font-family: "Helvetica", Sans-serif;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -34,7 +34,7 @@
       
       h2 {
         color: black;
-        font-family: "Lucida Console", Monospace;
+        font-family: "Helvetica", Sans-serif;
         padding-left: 100px;
       }
       
@@ -49,6 +49,7 @@
         border-color: rgba(84, 84, 82, .1);
         border-radius: 20px;
         -moz-border-radius: 20px;
+        box-shadow: 3px 2px #AAAAAA;
       }
       
       .chatArea p {
@@ -64,7 +65,7 @@
       
       /* Style the links inside the navigation bar */
       .topnav a {
-        font-family: "Lucida Console", Monospace;
+        font-family: "Helvetica", Sans-serif;
         float: left;
         color: black;
         text-align: center;
@@ -118,7 +119,7 @@
       }
       
       .actions input {
-        font-family: "Lucida Console", Monospace;
+        font-family: "Helvetica", Sans-serif;
         position: absolute;
         bottom: 5px;
         height: 7.5%;
@@ -154,7 +155,7 @@
       
       input[type="text"]::placeholder {  
         text-align: center;
-        font-family: "Lucida Console", Monospace;
+        font-family: "Helvetica", Sans-serif;
       }
       
       
@@ -298,9 +299,12 @@
       }
       
       if(firstRun()) {
-        $( "#topp" ).delay(0).fadeOut( 0, function() {});
+        $( "#topp" ).delay(0).fadeOut(0, function() {});
+        $( "#chatArea" ).delay(0).fadeOut(0, function() {});
         $( "#welcome" ).delay(300).fadeOut(1700, function() {});
         $( "#topp" ).delay(2000).fadeIn(500, function() {});
+        $( "#chatArea" ).delay(2000).fadeIn(500, function() {});
+
       } else {
         $( "#welcome" ).hide();
       }
