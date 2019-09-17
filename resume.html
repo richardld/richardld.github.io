@@ -5,16 +5,13 @@
   <title>Richard's Portfolio</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <style>
+  
     body {
       background-color: #fff;
-      background-image:
-      linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
-      linear-gradient(#eee .1em, transparent .1em);
       background-size: 100% 1.65em;
       
-      
       color: black;
-      font-family: "Lucida Console", Monospace;
+      font-family: "Helvetica", Sans-serif;
       
       height: 100vh;
       padding:0;
@@ -22,28 +19,60 @@
     }
     h1 {
       color: black;
-      font-family: "Lucida Console", Monospace;
+      font-family: "Helvetica", Sans-serif;
       position: absolute;
+      top: 50%;
       left: 50%;
-      margin-top: 25px;
       transform: translate(-50%, -50%);
     }
     
     h2 {
       color: black;
-      font-family: "Lucida Console", Monospace;
-      
+      font-family: "Helvetica", Sans-serif;
+      padding-left: 20px;
+    }
+    
+    h3 {
+      color: black;
+      font-family: "Helvetica", Sans-serif;
+      font-size: 20px;
+    }
+    
+    a {
+      color: #73C5E2;
+      font-family: "Helvetica", Sans-serif;
+    }
+    
+    .chatArea {
+      font-family: "Helvetica", Sans-serif;
+      position: fixed;
+      bottom: 5%;
+      right: 2.5%;
+      width: 150px;
+      height: 50px;
+      background-color: rgba(46, 155, 254, 0.25);
+      border: 2px solid;
+      border-color: rgba(84, 84, 82, .1);
+      border-radius: 20px;
+      -moz-border-radius: 20px;
+      box-shadow: 3px 2px #AAAAAA;
+    }
+    
+    .chatArea p {
+      text-align: center;
+      cursor: default;
     }
     /* Add a black background color to the top navigation */
     .topnav {
+      font-family: "Helvetica", Sans-serif;
       background-color: rgba(84, 84, 82, .1);
       overflow: hidden;
-      padding-left: 80px;
+      padding-left: 20px;
     }
     
     /* Style the links inside the navigation bar */
     .topnav a {
-      font-family: "Lucida Console", Monospace;
+      font-family: "Helvetica", Sans-serif;
       float: left;
       color: black;
       text-align: center;
@@ -68,12 +97,6 @@
       visibility: hidden;
     }
     
-    .left {
-      color: black;
-      font-family: "Lucida Console", Monospace;
-      padding-left: 100px;
-    }
-    
     .intro {
       overflow: hidden;
       margin: -10px;
@@ -86,33 +109,142 @@
     
     .scrollitem {
       text-align: center;
-      margin-top: 25px;
-      margin-bottom: 25px;
       margin-left: auto;
       margin-right: auto;
     }
     
-    iframe {
-      margin-top: 25px;
-      width: 50%;
-      height: 600px;
+    .chat {
+      height: 75%;
+      overflow: auto;
+      position: relative;
     }
     
-    a {
-      color: lightgrey;
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .actions input {
+      font-family: "Helvetica", Sans-serif;
+      position: absolute;
+      bottom: 5px;
+      height: 7.5%;
+      width: 98%;
+      outline: 0;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-radius: 15px;
+      border: 1px solid transparent;
+      text-indent: 10px;
+    }
+    
+    .messages div {
+      max-width: 60%;
+      margin: 5px;
+      padding: 10px;
+      border-radius: 10px;
     }
     
     hr {
-      margin-left: 45%;
-      margin-right: 45%;
-      margin-top: 35px;
-      margin-bottom: 35px;
-      border: 1px solid #F5F5DC;
-      color: #F5F5DC;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 125px;
+      color: darkgrey;
+    }
+    
+    .messages .bot {
+      text-align: left;
+      margin-right: auto;
+      background: #001f3f;
+      color: white;
+    }
+    
+    .messages .self {
+      text-align: right;
+      margin-left: auto;
+      background: #DDD
+    }
+    
+    input[type="text"]::placeholder {  
+      text-align: center;
+      font-family: "Helvetica", Sans-serif;
+    }
+    
+    
+    .scroll-wrapper {
+      overflow: hidden !important;
+      padding: 0 !important;
+      position: relative;
+    }
+    
+    .scroll-wrapper > .scroll-content {
+      border: none !important;
+      box-sizing: content-box !important;
+      height: auto;
+      left: 0;
+      margin: 0;
+      max-height: none;
+      max-width: none !important;
+      overflow: scroll !important;
+      padding: 0;
+      position: relative !important;
+      top: 0;
+      width: auto !important;
+    }
+    
+    .scroll-wrapper > .scroll-content::-webkit-scrollbar {
+      height: 0;
+      width: 0;
+    }
+    
+    .scroll-element {
+      display: none;
+    }
+    .scroll-element, .scroll-element div {
+      box-sizing: content-box;
+    }
+    
+    .scroll-element.scroll-x.scroll-scrollx_visible,
+    .scroll-element.scroll-y.scroll-scrolly_visible {
+      display: block;
+    }
+    
+    .scroll-element .scroll-bar,
+    .scroll-element .scroll-arrow {
+      cursor: default;
+    }
+    
+    .scroll-textarea {
+      border: 1px solid #cccccc;
+      border-top-color: #999999;
     }
     
     p {
-      font-size: 15px;
+      font-family: "Helvetica", Sans-serif;
+    }
+    
+    .scroll-textarea > .scroll-content {
+      overflow: hidden !important;
+    }
+    .scroll-textarea > .scroll-content > textarea {
+      border: none !important;
+      box-sizing: border-box;
+      height: 100% !important;
+      margin: 0;
+      max-height: none !important;
+      max-width: none !important;
+      overflow: scroll !important;
+      outline: none;
+      padding: 2px;
+      position: relative !important;
+      top: 0;
+      width: 100% !important;
+    }
+    .scroll-textarea > .scroll-content > textarea::-webkit-scrollbar {
+      height: 0;
+      width: 0;
     }
   </style>
 </head>
@@ -126,7 +258,7 @@
       <a href="contact.html">About me</a>
     </div>
     <div align="center">
-      <iframe frameborder="0" src="https://drive.google.com/file/d/15T7XpjExZlKvv9luXaUF22KDUTIDFmml/preview" align="middle" style="width: 850px; height: 1075px"></iframe>
+      <iframe frameborder="0" src="https://drive.google.com/file/d/15T7XpjExZlKvv9luXaUF22KDUTIDFmml/preview" align="middle" style="width: 850px; height: 1075px; margin: 20px;"></iframe>
     </div>
   </div>
   <script>

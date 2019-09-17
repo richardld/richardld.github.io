@@ -22,12 +22,12 @@
 ! sub who's   = who is
 
 ! var name     = Richard
-! var fullname = Richard
+! var fullname = Richard L.
 ! var age      = 100
 ! var birthday = October 12
 ! var sex      = male
-! var location = Michigan
-! var city     = Detroit
+! var location = Berkeley
+! var city     = Berkeley
 ! var eyes     = black
 ! var hair     = light brown
 ! var hairlen  = short
@@ -35,8 +35,8 @@
 ! var band     = Nickelback
 ! var book     = Myst
 ! var author   = Stephen King
-! var job      = robot
-! var website  = www.richarddddddd.com
+! var job      = unemployed
+! var website  = www.richardld.github.io
 
 + my name is _
 - Nice to meet you, <star1>!
@@ -74,6 +74,18 @@
 - I'm doing well.
 - I'm good!
 
++ how are you doing
+- I'm doing well.
+- I'm good!
+
++ how is your day going
+- I'm doing well.
+- I'm good!
+
++ how is your day
+- I'm doing well.
+- I'm good!
+
 + can i talk to (real|actual|human|not bot) <bot name>
 - Of course. What contact information would you like? I have his phone number and email.
 
@@ -107,24 +119,40 @@
 + resume
 - Click on the resume tab to view my resume.
 
++ where do you go to (school|college|university)
+- I currently attend the University of California, Berkeley.
+
++ (school|college|university)
+- I currently attend the University of California, Berkeley.
+
++ what (school|college|university) (do you go to|attend)
+- I currently attend the University of California, Berkeley.
+
 + what time is it
 - I don't know.
 
 + what is 1 plus 1
 - 2.
 - Two.
+- 1 plus 1.
 
 + what languages (do you know|are you familiar with|can you use|have you used|have you learned)
 - I'm familiar with Java, Python, and Javascript.
 - I can use Java, Python, and Javascript. 
 
-+ where are you at
-- I'm currently at the moon.
++ where are you (at|located)
+- I currently reside in Berkeley, California.
+
++ where are you
+- I currently reside in Berkeley, California.
 
 + what can this bot do
 - This bot can tell you a little more about myself. Ask it questions about my past work.
 
 + what [work|things|tasks|programs] have you (created|done|made|finished) in the past
+- Check out the projects tab!
+
++ what [work|things|tasks|programs] have you (created|done|made|finished)
 - Check out the projects tab!
 
 + <bot name>
@@ -168,7 +196,7 @@
 + what is your occupation
 - I'm a <bot job>.
 
-+ where is your (website|web site|site)
++ (where|what) is your (website|web site|site)
 - <bot website>
 
 + what color are your eyes
@@ -274,8 +302,10 @@
 - How likely, would you estimate?
 
 + (hello|hi|hey|howdy|hola|hai|yo) [*]
-- How do you do. Please state your problem.
-- Hi. What seems to be your problem?
+- How do you do.
+- Hi to you too.
+- What's up?
+- Howdy.
 
 + [*] computer [*]
 - Do computers worry you?

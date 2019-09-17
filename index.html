@@ -8,12 +8,9 @@
     <script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
     <script src="js/jquery.scrollbar.min.js"></script>
     <style>
-
+    
       body {
         background-color: #fff;
-        background-image:
-        linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
-        linear-gradient(#eee .1em, transparent .1em);
         background-size: 100% 1.65em;
         
         color: black;
@@ -35,10 +32,22 @@
       h2 {
         color: black;
         font-family: "Helvetica", Sans-serif;
-        padding-left: 100px;
+        padding-left: 20px;
+      }
+      
+      h3 {
+        color: black;
+        font-family: "Helvetica", Sans-serif;
+        font-size: 20px;
+      }
+      
+      a {
+        color: #73C5E2;
+        font-family: "Helvetica", Sans-serif;
       }
       
       .chatArea {
+        font-family: "Helvetica", Sans-serif;
         position: fixed;
         bottom: 5%;
         right: 2.5%;
@@ -58,9 +67,10 @@
       }
       /* Add a black background color to the top navigation */
       .topnav {
+        font-family: "Helvetica", Sans-serif;
         background-color: rgba(84, 84, 82, .1);
         overflow: hidden;
-        padding-left: 80px;
+        padding-left: 20px;
       }
       
       /* Style the links inside the navigation bar */
@@ -140,6 +150,13 @@
         border-radius: 10px;
       }
       
+      hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 125px;
+        color: darkgrey;
+      }
+      
       .messages .bot {
         text-align: left;
         margin-right: auto;
@@ -206,6 +223,11 @@
         border: 1px solid #cccccc;
         border-top-color: #999999;
       }
+      
+      p {
+        font-family: "Helvetica", Sans-serif;
+      }
+      
       .scroll-textarea > .scroll-content {
         overflow: hidden !important;
       }
@@ -241,18 +263,8 @@
         <a href="resume.html">Resume</a>
         <a href="contact.html">About me</a>
       </div> 
-      <div id="intro" style="padding-left: 80px;">
-         <img style="float: left;" class="stockphoto" src="person.jpg" alt="A person programming.">
-         <p class="introtext">Hello! Welcome to Richard's portfolio.</p>
-         <p class="introtext">This portfolio will contain a collection of the work accomplished by Richard in the past. Navigate around the website to see more.</p>
-         <p class="introtext">Check out the projects tab for a look at past projects.</p>
-         <p class="introtext">Check out the resume tab for my resume.</p>
-         <p class="introtext">Check out the about me tab for more information.</p>
-         <br>
-         <br>
-         <br>
-         <br>
-         <p class="introtext">Feel free to look around!</p>
+      <div id="intro" style="padding-left: 30px; padding-top: 10px;">
+         <p class="introtext">Student at the University of California, Berkeley.</p>
       </div>
     </div>
     <div class="chatArea" id="chatArea">
@@ -370,7 +382,7 @@
           function botReady() {
             bot.sortReplies();
             setTimeout(function(){
-              botReply("Hello!");
+              botReply("Hello! I'm Richard Bot. Ask me questions!");
             }, 400);
           }
           
