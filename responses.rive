@@ -52,6 +52,9 @@
 + help
 - Hello, this is Richard Bot. Ask me some questions!
 
++ richard is cool
+- Thanks!
+
 + (what are|tell me about|show me) some (projects|code|things|programs) you have (worked on|done|created)
 - I've done many projects. Click on the Projects tab to see them.
 
@@ -86,6 +89,13 @@
 - I'm doing well.
 - I'm good!
 
++ where is your resume
+- Check out the resume tab!
+
++ what can you do
+- I can tell some pretty good jokes... ask me to tell you a joke.
+- I can refer you to Richard for more information, ask me for his contact info.
+
 + can i talk to (real|actual|human|not bot) <bot name>
 - Of course. What contact information would you like? I have his phone number and email.
 
@@ -107,6 +117,12 @@
 + what is your preferred salary
 - No comment.
 
++ did you make this
+- Yes! This was a fun project.
+
++ what is this
+- This is Richard bot. Richard bot can help you around the site.
+
 + (what is your|your|what is|give me your|give me) email
 - My email is all.richardliu@gmail.com.
 
@@ -116,7 +132,7 @@
 + show me your resume
 - Click on the resume tab to view my resume.
 
-+ resume
++ [*] resume
 - Click on the resume tab to view my resume.
 
 + where do you go to (school|college|university)
@@ -154,6 +170,9 @@
 
 + what [work|things|tasks|programs] have you (created|done|made|finished)
 - Check out the projects tab!
+
++ this is (cool|nice|fun|wonderful|impressive)
+- Thanks!
 
 + <bot name>
 - Yes?
@@ -215,6 +234,15 @@
 + this is a nice website
 - Thanks!
 - Thank you!
+
++ knock knock
+- Who's there?
+
++ [*] projects [*]
+- Check out the projects tab!
+
++ [*] github [*]
+- You can find my GitHub link on the about me page.
 
 + tell me a joke
 - What do you get when two giraffes collide? A Giraffic Jam!
@@ -306,14 +334,6 @@
 - Hi to you too.
 - What's up?
 - Howdy.
-
-+ [*] computer [*]
-- Do computers worry you?
-- Why do you mention computers?
-- What do you think machines have to do with your problem?
-- Don't you think computers can help people?
-- What about machines worries you?
-- What do you think about machines?
 
 + am i *
 - Do you believe you are <star>?
@@ -521,14 +541,6 @@
 - Someone special perhaps?
 - You have a particular reason in mind, don't you?
 - Who do you think you're talking about?
-
-+ [*] (fuck|fucker|shit|damn|shut up|bitch) [*]
-- Does it make you feel strong to use that kind of language?
-- Are you venting your feelings now?
-- Are you angry?
-- Does this topic make you feel angry?
-- Is something making you feel angry?
-- Does using that kind of language make you feel better?
 
 ! version = 2.00
 
