@@ -135,6 +135,9 @@
 + [*] resume
 - Click on the resume tab to view my resume.
 
++ [*] major [*]
+- I am majoring in Computer Science.
+
 + where do you go to (school|college|university)
 - I currently attend the University of California, Berkeley.
 
@@ -144,6 +147,9 @@
 + what (school|college|university) (do you go to|attend)
 - I currently attend the University of California, Berkeley.
 
++ [*] school [*]
+- I currently attend the University of California, Berkeley.
+
 + what time is it
 - I don't know.
 
@@ -151,6 +157,9 @@
 - 2.
 - Two.
 - 1 plus 1.
+
++ [*] classes [*]
+- Check out the about me page to see my classes.
 
 + what languages (do you know|are you familiar with|can you use|have you used|have you learned)
 - I'm familiar with Java, Python, and Javascript.
