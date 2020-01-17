@@ -77,6 +77,9 @@
 - I'm doing well.
 - I'm good!
 
++ where do you work
+- I'm currently looking for a job.
+
 + how are you doing
 - I'm doing well.
 - I'm good!
@@ -138,6 +141,9 @@
 + [*] major [*]
 - I am majoring in Computer Science.
 
++ [*] linkedin [*]
+- My LinkedIn can be found at linkedin.com/in/richardld
+
 + where do you go to (school|college|university)
 - I currently attend the University of California, Berkeley.
 
@@ -182,6 +188,8 @@
 
 + this is (cool|nice|fun|wonderful|impressive)
 - Thanks!
+- Thank you.
+- That is very nice of you to say.
 
 + <bot name>
 - Yes?
@@ -244,8 +252,14 @@
 - Thanks!
 - Thank you!
 
++ did you draw these icons
+- Yes! I drew these icons myself.
+
 + knock knock
 - Who's there?
+
++ [*] phone [*]
+- I would prefer if you emailed me. You can reach me at all.richardliu@gmail.com.
 
 + [*] projects [*]
 - Check out the projects tab!
