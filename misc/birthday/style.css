@@ -18,8 +18,8 @@ h1 {
 }
 
 img {
-  max-width: 95%;
-  max-height: 95%;
+  width: 91%;
+  height: 98%;
   margin-top:10px;
   margin-bottom:10px;
 }
@@ -30,8 +30,6 @@ img {
 
 #flipbook .page{
     border-width: medium;
-    width:400px;
-    height:300px;
     background-color:white;
     line-height:300px;
     font-size:20px;
