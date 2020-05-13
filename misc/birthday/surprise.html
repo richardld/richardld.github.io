@@ -8,13 +8,17 @@
     <title>Hello World!</title>
   </head>
   <body>
-    <div id="flipbook" style="margin-top: 8%; border-color: black; border-width: thin; position: absolute; left: 19%;">
+    <div id="flipbook" style="margin-top: 4%; border-color: black; border-width: thin; position: absolute; left: 16%;">
     	<div class="hard"><img src="images/c0.png"></img> </div>
     	<div><img src="images/c1.png"></img></div>
     	<div><img src="images/c2.png"></img></div>
     	<div class="hard"><img src="images/c3.png"></img></div>
     </div>
     <h1 id="label">Happy Birthday Jason!</h1>
+    <audio id="song" autoplay>
+     <source src="audio/hb.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
     <script type="text/javascript">
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
         if (screen.height > 800) {
@@ -46,15 +50,12 @@
             fontSize: 90
           });
         }
-
-
       } else {
         $("#flipbook").turn({
-      		width: $(window).width() * 0.62,
-      		height: $(window).width() * 0.62 * 0.50,
+      		width: $(window).width() * 0.68,
+      		height: $(window).width() * 0.68 * 0.50,
       		autoCenter: true
       	});
-
       }
 
     </script>
