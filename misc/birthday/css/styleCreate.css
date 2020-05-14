@@ -1,0 +1,139 @@
+body {
+  background-image: None;
+}
+
+div.lc {
+  margin: auto;
+  text-align: center;
+}
+
+div.cv {
+  margin: auto;
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;
+}
+
+:-ms-input-placeholder {
+   text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 55px;
+  margin: 25px;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 50px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+input {
+  border: 1px solid grey;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+
+  font-family: 'Dancing Script', cursive;
+  font-size: 25px;
+  padding: 5px;
+  width: 200px;
+
+  margin-bottom: 15px;
+  text-align: center;
+
+}
+
+a {
+  color: blue;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.literally {
+  margin: auto;
+  text-align: center;
+  border-radius: 10px;
+  height: 75vh;
+  width: 100vh;
+}
+
+button {
+  margin: 2vh;
+  font-family: 'Dancing Script', cursive;
+  font-size: 20px;
+  background-color: rgb(255, 255, 255, 0);
+  border-style: solid;
+}
+
+button.save:hover {
+  background-color: lightblue;
+}
+
+button.nav:hover {
+  background-color: lightgrey;
+}
+
+ul.images {
+  margin: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  width: 55vw;
+  overflow-x: auto;
+  padding: 10px;
+  padding-bottom: 10px;
+  list-style-type: none;
+}
+
+ul.images li {
+  flex: 0 0 auto;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+img.horizontal {
+  max-width: 180px;
+  max-height: 207px;
+  border: 3px solid lightgrey;
+}
+
+img.horizontal-bg {
+  max-width: 180px;
+  max-height: 180px;
+  border: 3px solid lightgrey;
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.5);
+}

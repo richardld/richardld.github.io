@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="javascript/jquery-3.5.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-database.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/styleIndex.css">
+
+    <title>Happy Birthday!</title>
+
+  </head>
+  <body>
+    <div id="flipbook" style="margin-top: 4%; border-color: black; border-width: thin; position: absolute; left: 16%;">
+      <div></div>
+    </div>
+    <h1 class="center-label">Make a birthday card!</h1>
+    <div class="center">
+      <p id="link">Click to begin.</p>
+    </div>
+    <script>
+      $(document).click(function(evt){
+        window.open(window.location.href.substring(0, -10) + "create.html", '_self', false);
+      });
+      (function blink() {
+        $('#link').fadeOut(1250).fadeIn(1250, blink);
+      })();
+    </script>
+  </body>
+</html>

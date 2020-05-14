@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="javascript/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="javascript/turn.min.js"></script>
+    <!-- stylesheet -->
+    <link href="javascript/literallycanvas/css/literallycanvas.css" rel="stylesheet">
+
+    <!-- dependency: React.js -->
+    <script src="javascript/react-with-addons.min.js"></script>
+    <script src="javascript/react-dom.min.js"></script>
+
+    <!-- Literally Canvas -->
+    <script src="javascript/literallycanvas/js/literallycanvas.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/sign.css">
+    <link rel="stylesheet" type="text/css" href="css/styleSign.css">
+
+    <title>Happy Birthday!</title>
+  </head>
+  <body>
+    <h1>Sign the card!</h1>
+
+    <div class="cv">
+      <div class="lc" id="lc">
+      </div>
+    </div>
+    <div class="cv">
+      <button class="nav" id="previous">Previous Page</button>
+      <button class="nav" id="next">Next Page</button>
+      <button class="save" id="export">Save Signature</button>
+    </div>
+    <div id="link" class="cv">
+    </div>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBmR4cR6XQjrwf250vHfbOKpmnxClyKqrQ",
+        authDomain: "birthdaycards-8f079.firebaseapp.com",
+        databaseURL: "https://birthdaycards-8f079.firebaseio.com",
+        projectId: "birthdaycards-8f079",
+        storageBucket: "birthdaycards-8f079.appspot.com",
+        messagingSenderId: "1057828898157",
+        appId: "1:1057828898157:web:bb508d4f65a5f865c60664"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      var database = firebase.database();
+
+      let params = new URLSearchParams(location.search);
+      var id = params.get('id');
+      var pageCount;
+      var front;
+      var back;
+      var pages;
+
+      var backgroundImage = new Image();
+      backgroundImage.crossOrigin = "anonymous";
+      var currentPage = 0;
+      firebase.database().ref('/cards/' + id).once('value').then(function(snapshot) {
+        pageCount = snapshot.val().pageCount;
+        front = snapshot.val().front;
+        back = snapshot.val().back;
+      });
+      firebase.database().ref('/cards/' + id + '/pages').once('value').then(function(snapshot) {
+        pages = snapshot.val();
+        backgroundImage.src = pages[0];
+      });
+
+
+
+
+      var lc;
+      $(document).ready(function() {
+
+        lc = LC.init(document.getElementById("lc"),
+        {
+          imageURLPrefix: 'javascript/literallycanvas/img',
+          backgroundColor: '#ffffff00',
+          imageSize: {width: backgroundImage.width, height: backgroundImage.height},
+          backgroundShapes: [
+            LC.createShape(
+              'Image', {x: 0, y: 0, image: backgroundImage, scale: 1}),
+          ]
+        })
+        document.addEventListener('keydown', function(event) {
+          if (event.ctrlKey && event.key === 'z') {
+            lc.undo();
+          }
+        });
+        $("#previous").prop("disabled",true);
+        var imageBounds = {
+          x: 0, y: 0, width: 510, height: 575
+        };
+
+
+        $('#export').click(function(e) {
+          e.preventDefault();
+          //var svgString = lc.getSVGString();
+          //pages[currentPage] = "data:image/svg+xml;base64," + btoa(svgString);
+          pages[currentPage] = lc.getImage({rect: imageBounds}).toDataURL();
+          console.log(pages[currentPage]);
+          firebase.database().ref('cards/' + id).update({
+            pages: pages
+          });
+        });
+
+        $('#next').click(function(e) {
+          e.preventDefault();
+          currentPage += 1;
+          if (currentPage == pageCount - 1) {
+            $("#next").prop("disabled", true);
+          }
+          if (currentPage != 0) {
+            $("#previous").prop("disabled", false);
+          }
+          var backgroundImage = new Image();
+          backgroundImage.crossOrigin = "anonymous";
+          backgroundImage.onload = function() {
+            lc = LC.init(document.getElementById("lc"),
+            {
+              imageURLPrefix: 'javascript/literallycanvas/img',
+              backgroundColor: '#ffffff00',
+              imageSize: {width: backgroundImage.width, height: backgroundImage.height},
+              backgroundShapes: [
+                LC.createShape(
+                  'Image', {x: 0, y: 0, image: backgroundImage, scale: 1}),
+              ]
+            });
+          }
+          backgroundImage.src = pages[currentPage];
+        });
+
+        $('#previous').click(function(e) {
+          e.preventDefault();
+          currentPage -= 1;
+          if (currentPage != pageCount - 1) {
+            $("#next").prop("disabled", false);
+          }
+          if (currentPage == 0) {
+            $("#previous").prop("disabled", true);
+          }
+          var backgroundImage = new Image();
+          backgroundImage.crossOrigin = "anonymous";
+          backgroundImage.onload = function() {
+            lc = LC.init(document.getElementById("lc"),
+            {
+              imageURLPrefix: 'javascript/literallycanvas/img',
+              backgroundColor: '#ffffff00',
+              imageSize: {width: backgroundImage.width, height: backgroundImage.height},
+              backgroundShapes: [
+                LC.createShape(
+                  'Image', {x: 0, y: 0, image: backgroundImage, scale: 1}),
+              ]
+            });
+          }
+          backgroundImage.src = pages[currentPage];
+        });
+      });
+      $('<p>').attr('id', 'blurb').add("<a href=" + window.location.href.substring(0, -11) + "card.html?id=" + id + ">View the card!</a>").appendTo('#link');
+
+    </script>
+
+  </body>
+</html>
