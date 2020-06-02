@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Richard's Portfolio</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="js/showdown.min.js"></script>
   <style>
   
     body {
@@ -16,14 +17,7 @@
       height: 100vh;
       padding:0;
       margin:0;
-    }
-    h1 {
-      color: black;
-      font-family: "Helvetica", Sans-serif;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      overflow: hidden;
     }
     
     h2 {
@@ -35,7 +29,16 @@
     h3 {
       color: black;
       font-family: "Helvetica", Sans-serif;
-      font-size: 20px;
+      font-size: 17px;
+      margin: 5px;
+    }
+    
+    h4 {
+      margin-top: 0px;
+      color: grey;
+      font-family: "Helvetica", Sans-serif;
+      padding-left: 20px;
+      font-weight: normal;
     }
     
     a {
@@ -111,6 +114,7 @@
       text-align: center;
       margin-left: auto;
       margin-right: auto;
+      cursor: default;
     }
     
     .chat {
@@ -150,7 +154,7 @@
     hr {
       margin-top: 20px;
       margin-bottom: 20px;
-      width: 125px;
+      width: 95%;
       color: darkgrey;
     }
     
@@ -223,6 +227,8 @@
     
     p {
       font-family: "Helvetica", Sans-serif;
+      font-size: 12px;
+      color: grey;
     }
     
     .scroll-textarea > .scroll-content {
@@ -246,9 +252,58 @@
       height: 0;
       width: 0;
     }
+    
+    .leftbar {
+      width: 20%;
+      overflow-y: auto;
+      height: 82vh;
+      margin-top: 10px;
+      scrollbar-width: thin;
+    }
+    .horizontal {
+      display: flex;
+    }
+    
+    .rightbar {
+      width: 80%;
+      height: 84vh;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 100%;
+      border-width: 0px;
+      border: 0;
+    }
+    
+    #rightb h1 {
+      margin-left: 15px;
+      padding: 0px;
+    }
+    
+    #rightb h2 {
+      font-size: 14px;
+      margin-left: 15px;
+      padding: 0px;
+    }
+    
+    #rightb h3 {
+      
+    }
+    
+    #rightb p {
+      font-size: 14px;
+      margin-left: 15px;
+      padding: 0px;
+    }
   </style>
 </head>
 <body>
+  <script>
+    function clickDiv(file) {
+      document.getElementById("display").src = file;
+    }
+  </script>
   <div id="topp">
     <h2>Richard's Portfolio</h2>
     <div class="topnav">
@@ -257,76 +312,97 @@
       <a href="resume.html">Resume</a>
       <a href="contact.html">About me</a>
     </div> 
-    <div class="greybackground">
-      <div class="scrollitem">
-        <h3>Map Application</h3>
-        <p>An application that converts location data into a navigatable visual.</p>
-        <p>Written with Java.</p>
-        <a href="https://github.com/richardld/map-application/tree/master">GitHub</a>
-      </div>
-      <hr>
-      <div class="scrollitem">
-        <h3>Cybersecurity Visualization Website</h3>
-        <p>A website to connecting cyber threats though a visual tree.</p>
-        <p>Written with HTML, CSS, and Javascript.</p>
-        <p><a href="https://richardld.github.io/cybersecurity-tree/cybersecuritree/www/actual.html">Link</a> <a href="https://github.com/richardld/cybersecurity-tree">GitHub</a></p>
-      </div>
-      <hr>
-      <div class="scrollitem">
-        <h3>Secret Santa Website</h3>
-        <p>A website for organizing secret santa events.</p>
-        <p>Written with HTML, CSS, and Javascript.</p>
-        <p><a href="https://richardld.github.io/secret-santa">Link</a> <a href="https://github.com/richardld/secret-santa">GitHub</a></p>
-      </div>
-      <hr>
-      <div class="scrollitem">
-        <h3>Emotion Recognizing Camera App</h3>
-        <p>An Android application that only takes photos if everyone is smiling.</p>
-        <p>Written with Java and Google Cloud.</p>
-        <a href="https://github.com/richardld/only-happy-photos">Link</a>
-      </div>
-      <hr>
-      <div class="scrollitem">
-        <h3>Music Player</h3>
-        <p>An Android application for offline music playing.</p>
-        <p>Written with Java.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.apps.richard.musicplayer">Play Store</a>
-      </div>
-      <hr>
-      <div class="scrollitem">
-        <h3>News Mobile App and Website</h3>
-        <p>A program to view the news.</p>
-        <p>Written with HTML, CSS, Javascript, and Java.</p>
-        <a href="https://github.com/richardld/news-app">GitHub</a>
-      </div>
-      <hr>
-      <div class="scrollitem">
-        <h3>Quote Database</h3>
-        <p>A lookup database for famous quotations.</p>
-        <p>Written with Java.</p>
-        <a href="https://github.com/richardld/quote-database">GitHub</a>
-      </div>
-      <hr>
-      <div class="scrollitem">
-        <h3>Lookup Dictionary</h3>
-        <p>A program to create a dictionary lookup program given a set of data.</p>
-        <p>Written with Java.</p>
-        <a href="https://github.com/richardld/dictionary-app">GitHub</a>
-      </div>
-      <hr>
-      <div class="scrollitem">
-        <h3>Portfolio Website</h3>
-        <p>A website showing work I have worked on.</p>
-        <p>Written with HTML, CSS, and JavaScript.</p>
-        <a href="index.html">Link</a>
-      </div>
-      <div style="padding: 20px;"></div>
-    </div>
     
+    <div class='horizontal'>
+      <div class='leftbar'>
+        <div class="greybackground" style="margin-top: 15px;">
+          <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/misc/birthday')">
+            <h3>Birthday Card Maker</h3>
+            <p>Create signable digital birthday cards.</p>
+          </div>
+          <hr>
+          <div class="scrollitem" onclick="clickDiv('https://howdoescovidaffectme.com')">
+            <h3>Viral Risk Estimate</h3>
+            <p>Estimate your risk of viral infection.</p>
+          </div>
+          <hr>
+          <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/map-application')">
+            <h3>Map Application</h3>
+            <p>Converts location data into a navigatable visual.</p>
+          </div>
+          <hr>
+          <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/cybersecurity-tree')">
+            <h3>Cybersecurity Visual</h3>
+            <p>Connects cyber threats though a visual tree.</p>
+          </div>
+          <hr>
+          <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/secret-santa')">
+            <h3>Secret Santa Website</h3>
+            <p>Organizes secret santa events.</p>
+          </div>
+          <hr>
+          <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/only-happy-photos')">
+            <h3>Emotion Photography App</h3>
+            <p>Only takes photos if everyone is smiling.</p>
+          </div>
+          <hr>
+          <div class="scrollitem" onclick="clickDiv('projects/musicplayer.html')">
+            <h3>Music Player</h3>
+            <p>Offline Android music playing.</p>
+          </div>
+          <hr>
+          <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/news-app')">
+            <h3>News App and Site</h3>
+            <p>View the news on a browser or phone.</p>
+          </div>
+          <hr>
+          <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/quote-database/')">
+            <h3>Quote Database</h3>
+            <p>Lookup database for famous quotations.</p>
+          </div>
+          <hr>
+          <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/dictionary-app/')">
+            <h3>Lookup Dictionary</h3>
+            <p>Creates a dictionary program given a set of data.</p>
+          </div>
+          <hr>
+          <div class="scrollitem" onclick="clickDiv('https://richardld.github.io')">
+            <h3>Portfolio Website</h3>
+            <p>Shows work I have worked on.</p>
+          </div>
+          <hr>
+          <div class="scrollitem">
+            <h3>Scheme/Lisp compiler</h3>
+            <p>Compiler for the Lisp programming language.</p>
+          </div>
+          <hr>
+          <div class="scrollitem">
+            <h3>Audio Location Finder</h3>
+            <p>Determines user location based on sound.</p>
+          </div>
+          <hr>
+          <div class="scrollitem">
+            <h3>RC Biplane</h3>
+            <p>Radio controlled plane.</p>
+          </div>
+          <hr>
+          <div class="scrollitem">
+            <h3>Network Audio Transfer (In Progress)</h3>
+            <p>Transmit system audio across wifi.</p>
+          </div>
+          <hr>
+          <div class="scrollitem">
+            <h3>SoC Quadcopter (In Progress)</h3>
+            <p>Internet connected drone using RasPi and MSP430.</p>
+          </div>
+          <div style="padding: 10px;"></div>
+        </div>
+      </div>
+      <div class='rightbar' id='rightb'>
+        <iframe id="display" src="https://richardld.github.io/misc/birthday"></iframe>
+      </div>
+    </div>
   </div>
-  <script>
-  
-  </script>
   
 </body>
 </html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Richard's Portfolio</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="js/showdown.min.js"></script>
+  <style>
+  
+    body {
+      background-color: #fff;
+      background-size: 100% 1.65em;
+      
+      color: black;
+      font-family: "Helvetica", Sans-serif;
+      
+      height: 100vh;
+      padding:0;
+      margin:0;
+      overflow: hidden;
+    }
+    
+    h2 {
+      color: black;
+      font-family: "Helvetica", Sans-serif;
+      padding-left: 20px;
+    }
+    
+    h3 {
+      color: black;
+      font-family: "Helvetica", Sans-serif;
+      font-size: 17px;
+      padding-left: 20px;
+    }
+    
+    h4 {
+      margin-top: 0px;
+      color: grey;
+      font-family: "Helvetica", Sans-serif;
+      padding-left: 20px;
+      font-weight: normal;
+    }
+    
+    a {
+      color: #73C5E2;
+      font-family: "Helvetica", Sans-serif;
+    }
+    
+    a:link {
+      color: black;
+    }
+    a:visited {
+      color: black;
+    }
+    a:hover {
+      color: #73C5E2;;
+    }
+    
+    hr {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      width: 95%;
+      color: darkgrey;
+    }
+
+    
+    input[type="text"]::placeholder {  
+      text-align: center;
+      font-family: "Helvetica", Sans-serif;
+    }
+    
+    p {
+      font-family: "Helvetica", Sans-serif;
+      font-size: 15px;
+      color: grey;
+      padding-left: 20px;
+    }
+    
+    .leftbar {
+      width: 20%;
+      overflow-y: auto;
+      height: 82vh;
+      margin-top: 10px;
+      scrollbar-width: thin;
+    }
+    .hor {
+      display: flex;
+    }
+    
+    .rightbar {
+      width: 80%;
+      height: 84vh;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 100%;
+      border-width: 0px;
+      border: 0;
+    }
+    
+    #rightb h1 {
+      margin-left: 15px;
+      padding: 0px;
+    }
+    
+    #rightb h2 {
+      font-size: 14px;
+      margin-left: 15px;
+      padding: 0px;
+    }
+    
+    #rightb h3 {
+      
+    }
+    
+    #rightb p {
+      font-size: 14px;
+      margin-left: 15px;
+      padding: 0px;
+    }
+    
+    ul.images {
+      margin-left: 20px;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      width: 85vw;
+      overflow-x: auto;
+      padding: 10px;
+      padding-bottom: 10px;
+      list-style-type: none;
+      scrollbar-width: thin;
+    }
+
+    ul.images li {
+      flex: 0 0 auto;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    
+    img.horizontal {
+      min-height: 55vh;
+      max-height: 55vh;
+      border: 3px solid lightgrey;
+    }
+    
+    .description {
+      max-width: 90%;
+    }
+    
+    img.symbol {
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+  </style>
+</head>
+<body>
+  <h2><a href="https://play.google.com/store/apps/details?id=com.apps.richard.musicplayer" target="_blank" rel="noopener noreferrer">Music Player</a></h2>
+  <p>A program for offline music playing.</p>
+  <ul id="images" class="images">
+    <li><img class="horizontal" src="images/music4.png"></img></li>
+    <li><img class="horizontal" src="images/music2.png"></img></li>
+    <li><img class="horizontal" src="images/music3.png"></img></li>
+  </ul>
+  <h3>Description</h3>
+  <p class="description">A music player for playback of audio files stored on the device. Select downloaded audio files and save them, allowing listening at anytime. Set custom names and authors for music files and play or shuffle music.</p>
+  <p class="description">Written in Java. Published on the Google Play Store.</p>
+
+</body>
+</html>
