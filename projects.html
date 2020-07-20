@@ -110,13 +110,6 @@
       margin-right: 25px;
     }
     
-    .scrollitem {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-      cursor: default;
-    }
-    
     .chat {
       height: 75%;
       overflow: auto;
@@ -152,10 +145,10 @@
     }
     
     hr {
-      margin-top: 20px;
-      margin-bottom: 20px;
+      margin-top: 5px;
+      margin-bottom: 5px;
       width: 95%;
-      color: darkgrey;
+      color: lightgrey;
     }
     
     .messages .bot {
@@ -267,6 +260,9 @@
     .rightbar {
       width: 80%;
       height: 84vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     
     iframe {
@@ -291,17 +287,66 @@
       
     }
     
-    #rightb p {
-      font-size: 14px;
-      margin-left: 15px;
-      padding: 0px;
+    .url-bar {
+      margin: 5px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: lightgrey;
+      background-color: #f9f9f9;
+      padding: 1px 10px 1px 10px;
+      width: 97%;
+      border-radius: 10px;
+      text-align: left;
     }
+    
+    .url {
+      font-size: 14px;
+      margin: 8px;
+    }
+    
+    .description {
+      padding: 0px;
+      margin: 0px;
+    }
+    
+    .code {
+      width: auto;
+      padding: 5px;
+      padding-left: 9px;
+      padding-right: 9px;
+      background-color: #f1f8ff;
+      color: #0366d6;
+      text-align: center;
+      margin: 5px;
+      margin-left: 0px;
+      margin-right: 0px;
+      border-radius: 13px;  
+    }
+    
+    .scrollitem {
+      margin: 0px;
+      padding: 0px;
+      margin-left: 15px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-align: left;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .scrollitem h3 {
+      margin-left: 0px;
+    }
+    
   </style>
 </head>
 <body>
   <script>
     function clickDiv(file) {
       document.getElementById("display").src = file;
+      document.getElementById("url").innerHTML = file;
     }
   </script>
   <div id="topp">
@@ -311,94 +356,181 @@
       <a class="active" href="projects.html">Projects</a>
       <a href="resume.html">Resume</a>
       <a href="contact.html">About me</a>
+      <a href="misc.html">Misc</a>
     </div> 
     
     <div class='horizontal'>
       <div class='leftbar'>
-        <div class="greybackground" style="margin-top: 15px;">
+        <div class="greybackground">
           <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/misc/birthday')">
             <h3>Birthday Card Maker</h3>
-            <p>Create signable digital birthday cards.</p>
+            <p class='description'>Create signable digital birthday cards.</p>
+            <div class='horizontal'>
+              <p class='code'>web</p>
+            </div>
           </div>
-          <hr>
-          <div class="scrollitem" onclick="clickDiv('https://howdoescovidaffectme.com')">
-            <h3>Viral Risk Estimate</h3>
-            <p>Estimate your risk of viral infection.</p>
-          </div>
-          <hr>
+          
           <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/map-application')">
             <h3>Map Application</h3>
-            <p>Converts location data into a navigatable visual.</p>
+            <p class='description'>Converts location data into a navigatable visual.</p>
+            <div class='horizontal'>
+              <p class='code'>java</p>
+              <p class='code'>processing</p>
+              <p class='code'>open-street-map</p>
+            </div>
           </div>
-          <hr>
+          
           <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/cybersecurity-tree')">
             <h3>Cybersecurity Visual</h3>
-            <p>Connects cyber threats though a visual tree.</p>
+            <p class='description'>Connects cyber threats though a visual tree.</p>
+            <div class='horizontal'>
+              <p class='code'>web</p>
+              <p class='code'>d3-js</p>
+              <p class='code'>jquery</p>
+            </div>
           </div>
-          <hr>
+          
+          <div class="scrollitem" onclick="clickDiv('https://colab.research.google.com/drive/13VY20uTUDC8xH30wg07SJ8tXTWRmvUJ9?usp=sharing')">
+            <h3>Recipe classifier</h3>
+            <p class='description'>Neural net to classify recipes into cuisines.</p>
+            <div class='horizontal'>
+              <p class='code'>python</p>
+              <p class='code'>ml</p>
+              <p class='code'>keras</p>
+            </div>
+          </div>
+          
+          <div class="scrollitem" onclick="clickDiv('https://www.kaggle.com/maldor1/kernel228ce1051c')">
+            <h3>Tweet sentiment analysis</h3>
+            <p class='description'>Neural net to predict sentiment from tweets.</p>
+            <div class='horizontal'>
+              <p class='code'>python</p>
+              <p class='code'>ml</p>
+              <p class='code'>nlp</p>
+              <p class='code'>keras</p>
+              <p class='code'>word2vec</p>
+            </div>
+          </div>
+          
+          <div class="scrollitem" onclick="clickDiv('https://jet-inc.github.io/justamity')">
+            <h3>Friend making site</h3>
+            <p class='description'>Platform to make friends online.</p>
+            <div class='horizontal'>
+              <p class='code'>web</p>
+              <p class='code'>firebase</p>
+              <p class='code'>react</p>
+            </div>
+          </div>
+          
+          <div class="scrollitem" onclick="clickDiv('https://howdoescovidaffectme.com')">
+            <h3>Viral Risk Estimate</h3>
+            <p class='description'>Estimate your risk of viral infection.</p>
+            <div class='horizontal'>
+              <p class='code'>web</p>
+              <p class='code'>postman-apis</p>
+            </div>
+          </div>
+          
           <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/secret-santa')">
             <h3>Secret Santa Website</h3>
-            <p>Organizes secret santa events.</p>
+            <p class='description'>Organizes secret santa events.</p>
+            <div class='horizontal'>
+              <p class='code'>web</p>
+              <p class='code'>firebase</p>
+            </div>
           </div>
-          <hr>
+          
           <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/only-happy-photos')">
             <h3>Emotion Photography App</h3>
-            <p>Only takes photos if everyone is smiling.</p>
+            <p class='description'>Only takes photos if everyone is smiling.</p>
+            <div class='horizontal'>
+              <p class='code'>android</p>
+              <p class='code'>computer-vision</p>
+            </div>
           </div>
-          <hr>
+          
           <div class="scrollitem" onclick="clickDiv('projects/musicplayer.html')">
             <h3>Music Player</h3>
-            <p>Offline Android music playing.</p>
+            <p class='description'>Offline Android music playing.</p>
+            <div class='horizontal'>
+              <p class='code'>android</p>
+              <p class='code'>audio</p>
+            </div>
           </div>
-          <hr>
+          
+          
+          <div class="scrollitem" onclick="clickDiv('https://inst.eecs.berkeley.edu/~cs61a/fa18/proj/scheme/')">
+            <h3>Scheme/Lisp compiler</h3>
+            <p class='description'>Compiler for the Lisp programming language.</p>
+            <div class='horizontal'>
+              <p class='code'>python</p>
+              <p class='code'>cs61a</p>
+            </div>
+          </div>
+          
           <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/news-app')">
             <h3>News App and Site</h3>
-            <p>View the news on a browser or phone.</p>
+            <p class='description'>View the news on a browser or phone.</p>
+            <div class='horizontal'>
+              <p class='code'>web</p>
+              <p class='code'>android</p>
+            </div>
           </div>
-          <hr>
+          
           <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/quote-database/')">
             <h3>Quote Database</h3>
-            <p>Lookup database for famous quotations.</p>
+            <p class='description'>Lookup database for famous quotations.</p>
+            <div class='horizontal'>
+              <p class='code'>java</p>
+            </div>
           </div>
-          <hr>
+          
           <div class="scrollitem" onclick="clickDiv('https://richardld.github.io/dictionary-app/')">
             <h3>Lookup Dictionary</h3>
-            <p>Creates a dictionary program given a set of data.</p>
+            <p class='description'>Creates a dictionary program given a set of data.</p>
+            <div class='horizontal'>
+              <p class='code'>java</p>
+            </div>
           </div>
-          <hr>
+          
           <div class="scrollitem" onclick="clickDiv('https://richardld.github.io')">
             <h3>Portfolio Website</h3>
-            <p>Shows work I have worked on.</p>
+            <p class='description'>Shows work I have worked on.</p>
+            <div class='horizontal'>
+              <p class='code'>web</p>
+              <p class='code'>chat-bot</p>
+              <p class='code'>jquery</p>
+              <p class='code'>p5-js</p>
+              <p class='code'>rivescript</p>
+            </div>
           </div>
-          <hr>
-          <div class="scrollitem">
-            <h3>Scheme/Lisp compiler</h3>
-            <p>Compiler for the Lisp programming language.</p>
+          <div class="scrollitem" onclick="clickDiv('https://colab.research.google.com/drive/1YekJoDs_4kHeAGbh3Qt9t5wGiY8e4IOM?usp=sharing')">
+            <h3>Raspi Quadcopter (In Progress)</h3>
+            <p class='description'>Internet connected drone using RasPi and MSP430.</p>
+            <div class='horizontal'>
+              <p class='code'>hardware</p>
+              <p class='code'>python</p>
+              <p class='code'>control</p>
+              <p class='code'>lqr</p>
+            </div>
           </div>
-          <hr>
-          <div class="scrollitem">
-            <h3>Audio Location Finder</h3>
-            <p>Determines user location based on sound.</p>
-          </div>
-          <hr>
-          <div class="scrollitem">
-            <h3>RC Biplane</h3>
-            <p>Radio controlled plane.</p>
-          </div>
-          <hr>
           <div class="scrollitem">
             <h3>Network Audio Transfer (In Progress)</h3>
-            <p>Transmit system audio across wifi.</p>
+            <p class='description'>Transmit system audio across wifi.</p>
+            <div class='horizontal'>
+              <p class='code'>python</p>
+              <p class='code'>bluetooth</p>
+              <p class='code'>audio</p>
+            </div>
           </div>
-          <hr>
-          <div class="scrollitem">
-            <h3>SoC Quadcopter (In Progress)</h3>
-            <p>Internet connected drone using RasPi and MSP430.</p>
-          </div>
-          <div style="padding: 10px;"></div>
+          
+          
         </div>
       </div>
       <div class='rightbar' id='rightb'>
+        <div class='url-bar'>
+          <p class='url' id="url">https://richardld.github.io/misc/birthday</p>
+        </div>
         <iframe id="display" src="https://richardld.github.io/misc/birthday"></iframe>
       </div>
     </div>
