@@ -348,6 +348,10 @@
       document.getElementById("display").src = file;
       document.getElementById("url").innerHTML = file;
     }
+    
+    function openNewTab(file) {
+      window.open(file);
+    }
   </script>
   <div id="topp">
     <h2>Richard's Portfolio</h2>
@@ -390,7 +394,7 @@
             </div>
           </div>
           
-          <div class="scrollitem" onclick="clickDiv('https://colab.research.google.com/drive/13VY20uTUDC8xH30wg07SJ8tXTWRmvUJ9?usp=sharing')">
+          <div class="scrollitem" onclick="openNewTab('https://colab.research.google.com/drive/1zRlHoz0n0tNdF3FtrnZKLnzEERBD7lW2?usp=sharing')">
             <h3>Recipe classifier</h3>
             <p class='description'>Neural net to classify recipes into cuisines.</p>
             <div class='horizontal'>
@@ -400,7 +404,7 @@
             </div>
           </div>
           
-          <div class="scrollitem" onclick="clickDiv('https://www.kaggle.com/maldor1/kernel228ce1051c')">
+          <div class="scrollitem" onclick="openNewTab('https://www.kaggle.com/maldor1/kernel228ce1051c')">
             <h3>Tweet sentiment analysis</h3>
             <p class='description'>Neural net to predict sentiment from tweets.</p>
             <div class='horizontal'>
@@ -504,7 +508,7 @@
               <p class='code'>rivescript</p>
             </div>
           </div>
-          <div class="scrollitem" onclick="clickDiv('https://colab.research.google.com/drive/1YekJoDs_4kHeAGbh3Qt9t5wGiY8e4IOM?usp=sharing')">
+          <div class="scrollitem" onclick="openNewTab('https://colab.research.google.com/drive/1YekJoDs_4kHeAGbh3Qt9t5wGiY8e4IOM?usp=sharing')">
             <h3>Raspi Quadcopter (In Progress)</h3>
             <p class='description'>Internet connected drone using RasPi and MSP430.</p>
             <div class='horizontal'>
