@@ -75,14 +75,31 @@
         name = snapshot.val().name;
         document.getElementById("title").innerHTML = "Sign " + name + "'s birthday card!";
       });
-      firebase.database().ref('/cards/' + id + '/pages').once('value').then(function(snapshot) {
-        pages = snapshot.val();
-        backgroundImage.src = pages[0];
-      });
+
       firebase.database().ref('/cards/' + id + '/pages').on('value', (snapshot) => {
         pages = snapshot.val();
-        backgroundImage.src = pages[0];
-        console.log("hello1");
+        var backgroundImage = new Image();
+        backgroundImage.crossOrigin = "anonymous";
+        backgroundImage.onload = function() {
+          lc = LC.init(document.getElementById("lc"),
+          {
+            imageURLPrefix: 'https://richardld.github.io/img',
+            backgroundColor: '#ffffff00',
+            imageSize: {width: backgroundImage.width, height: backgroundImage.height},
+            backgroundShapes: [
+              LC.createShape(
+                'Image', {x: 0, y: 0, image: backgroundImage, scale: 1}),
+            ],
+          });
+          /*var unsubscribe = lc.on('drawingChange', function() {
+            console.log('hellow');
+            pages[currentPage] = lc.getImage({rect: imageBounds}).toDataURL();
+            firebase.database().ref('cards/' + id).update({
+              pages: pages
+            });
+          });*/
+        }
+        backgroundImage.src = pages[currentPage];
       });
 
       var lc;
@@ -107,24 +124,26 @@
           x: 0, y: 0, width: 510, height: 575
         };
         
-        var unsubscribe = lc.on('drawingChange', function() {
+        /*var unsubscribe = lc.on('drawingChange', function() {
           console.log('hellow');
           pages[currentPage] = lc.getImage({rect: imageBounds}).toDataURL();
           firebase.database().ref('cards/' + id).update({
             pages: pages
           });
-        });
+        });*/
 
 
         $('#export').click(function(e) {
           e.preventDefault();
           //var svgString = lc.getSVGString();
           //pages[currentPage] = "data:image/svg+xml;base64," + btoa(svgString);
-          pages[currentPage] = lc.getImage({rect: imageBounds}).toDataURL();
-          console.log(pages[currentPage]);
-          firebase.database().ref('cards/' + id).update({
-            pages: pages
-          });
+          if (currentPage != 0) {
+            pages[currentPage] = lc.getImage({rect: imageBounds}).toDataURL();
+            console.log(pages[currentPage]);
+              firebase.database().ref('cards/' + id).update({
+                pages: pages
+              });
+            }
         });
 
         $('#next').click(function(e) {
@@ -149,13 +168,13 @@
                   'Image', {x: 0, y: 0, image: backgroundImage, scale: 1}),
               ]
             });
-            var unsubscribe = lc.on('drawingChange', function() {
+            /*var unsubscribe = lc.on('drawingChange', function() {
               console.log('hellow');
               pages[currentPage] = lc.getImage({rect: imageBounds}).toDataURL();
               firebase.database().ref('cards/' + id).update({
                 pages: pages
               });
-            });
+            });*/
           }
           backgroundImage.src = pages[currentPage];
         });
