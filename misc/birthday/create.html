@@ -30,6 +30,8 @@
       <li><img class="horizontal" src="images/fronts/4.png"></img></li>
       <li><img class="horizontal" src="images/fronts/5.png"></img></li>
       <li><img class="horizontal" src="images/fronts/6.png"></img></li>
+      <li id="select-li" style='display:none'><img id="select-img"></img></li>
+      <li><input type="file" accept=".png,.jpg,.jpeg,.svg" id="select" class="horizontal-input"></input></li>
     </ul>
     <h2>Select a background</h2>
     <ul id="bgImages" class="images">
@@ -40,6 +42,8 @@
       <li><img class="horizontal-bg" src="images/backs/4.png"></img></li>
       <li><img class="horizontal-bg" src="images/backs/5.png"></img></li>
       <li><img class="horizontal-bg" src="images/backs/6.png"></img></li>
+      <li id="select-bg-li" style='display:none'><img id="select-bg"></img></li>
+      <li><input type="file" id="select-bg" class="horizontal-bg-input"></input></li>
     </ul>
     <div class="cv">
       <input id="name"type="text" placeholder="Who is the card for?"></input>
@@ -84,6 +88,46 @@
 
       $("#images").niceScroll();
       $("#bgImages").niceScroll();
+      
+      $("input#select").change(function () {
+        var fReader = new FileReader();
+        fReader.readAsDataURL($("input#select").prop('files')[0]);
+        fReader.onloadend = function(event){
+            var img = document.getElementById("select-img");
+            img.src = event.target.result;
+            $("#select-img").attr('class', 'horizontal');
+            $("#select-li").attr('style', 'display: inherit');
+            
+            $("#select-img").click(function(e) {
+              e.preventDefault()
+              if (image != null) {
+                image.css('border-color', "lightgrey");
+              }
+              image = $(this);
+              image.css('border-color', "lightblue");
+            });
+        }
+      });
+      
+      $("input#select-bg").change(function () {
+        var fReader = new FileReader();
+        fReader.readAsDataURL($("input#select-bg").prop('files')[0]);
+        fReader.onloadend = function(event){
+            var img = document.getElementById("select-bg");
+            img.src = event.target.result;
+            $("#select-bg").attr('class', 'horizontal');
+            $("#select-bg-li").attr('style', 'display: inherit');
+            
+            $("#select-bg").click(function(e) {
+              e.preventDefault()
+              if (bgImage != null) {
+                bgImage.css('border-color', "lightgrey");
+              }
+              bgImage = $(this);
+              bgImage.css('border-color', "lightblue");
+            });
+        }
+      });
 
       $(".horizontal").each(function() {
         $(this).click(function(e) {

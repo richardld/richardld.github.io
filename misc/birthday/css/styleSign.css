@@ -1,5 +1,6 @@
 body {
   background-image: None;
+  overflow: hidden;
 }
 
 a {
@@ -25,7 +26,7 @@ div.cv {
 h1 {
   text-align: center;
   font-family: 'Dancing Script', cursive;
-  font-size: 55px;
+  font-size: 40px;
   margin: 15px;
 }
 

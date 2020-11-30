@@ -111,14 +111,29 @@ ul.images li {
   margin-right: 10px;
 }
 
-img.horizontal {
+.horizontal {
   max-width: 150px;
   max-height: 170px;
   border: 3px solid lightgrey;
 }
 
-img.horizontal-bg {
+.horizontal-input {
   max-width: 150px;
+  height: 90%;
+  color: white;
+  max-height: 170px;
+  border: 3px solid lightgrey;
+}
+
+.horizontal-bg {
+  max-width: 150px;
+  max-height: 150px;
+  border: 3px solid lightgrey;
+}
+
+.horizontal-bg-input {
+  max-width: 150px;
+  height: 89%;
   max-height: 150px;
   border: 3px solid lightgrey;
 }

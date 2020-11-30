@@ -19,7 +19,7 @@
     <title>Happy Birthday!</title>
   </head>
   <body>
-    <h1>Sign the card!</h1>
+    <h1 id="title">Sign the card!</h1>
 
     <div class="cv">
       <div class="lc" id="lc">
@@ -63,6 +63,7 @@
       var front;
       var back;
       var pages;
+      var name;
 
       var backgroundImage = new Image();
       backgroundImage.crossOrigin = "anonymous";
@@ -71,18 +72,21 @@
         pageCount = snapshot.val().pageCount;
         front = snapshot.val().front;
         back = snapshot.val().back;
+        name = snapshot.val().name;
+        document.getElementById("title").innerHTML = "Sign " + name + "'s birthday card!";
       });
       firebase.database().ref('/cards/' + id + '/pages').once('value').then(function(snapshot) {
         pages = snapshot.val();
         backgroundImage.src = pages[0];
       });
-
-
-
+      firebase.database().ref('/cards/' + id + '/pages').on('value', (snapshot) => {
+        pages = snapshot.val();
+        backgroundImage.src = pages[0];
+        console.log("hello1");
+      });
 
       var lc;
       $(document).ready(function() {
-
         lc = LC.init(document.getElementById("lc"),
         {
           imageURLPrefix: 'https://richardld.github.io/js/literallycanvas/img',
@@ -102,6 +106,14 @@
         var imageBounds = {
           x: 0, y: 0, width: 510, height: 575
         };
+        
+        var unsubscribe = lc.on('drawingChange', function() {
+          console.log('hellow');
+          pages[currentPage] = lc.getImage({rect: imageBounds}).toDataURL();
+          firebase.database().ref('cards/' + id).update({
+            pages: pages
+          });
+        });
 
 
         $('#export').click(function(e) {
@@ -136,6 +148,13 @@
                 LC.createShape(
                   'Image', {x: 0, y: 0, image: backgroundImage, scale: 1}),
               ]
+            });
+            var unsubscribe = lc.on('drawingChange', function() {
+              console.log('hellow');
+              pages[currentPage] = lc.getImage({rect: imageBounds}).toDataURL();
+              firebase.database().ref('cards/' + id).update({
+                pages: pages
+              });
             });
           }
           backgroundImage.src = pages[currentPage];
