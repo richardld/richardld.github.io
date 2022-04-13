@@ -17,24 +17,21 @@
     <div id="flipbook" style="margin-top: 4%; border-color: black; border-width: thin; position: absolute; left: 16%;">
       <div></div>
     </div>
-    <a id="updates" class="updates">Now on version 3!</a>
-    <div id="click">
-      <h1 class="center-label">Make a birthday card!</h1>
-      <div class="center">
-        <p id="link">Click to begin.</p>
-      </div>
-    </div>
-    <script>
-      $(document).click(function(evt){
-        if (evt.target.id == "updates") {
-          window.open(window.location.href.substring(0, -10) + "updates.html", '_self', false);
-        } else {
-          window.open(window.location.href.substring(0, -10) + "create.html", '_self', false);
-        }
-      });
-      (function blink() {
-        $('#link').fadeOut(1250).fadeIn(1250, blink);
-      })();
-    </script>
+    <h1>Change Log</h1>
+    <h2>Version 3</h2>
+    <p class="update-text">Released Apr. 12, 2022 (Thank you to loyal users!)<br>
+      Added page count indicator to sign page.<br>
+      Unsaved changes no longer lost when canvas is updated on another device!
+    </p>
+    <h2>Version 2</h2>
+    <p class="update-text">Released Nov. 30, 2020<br>
+      Added auto save.<br>
+      Added custom image upload.<br>
+      Small CSS changes.<br>
+    </p>
+    <h2>Version 1</h2>
+    <p class="update-text">Released May. 13, 2020<br>
+      Initial release!
+    </p>
   </body>
 </html>

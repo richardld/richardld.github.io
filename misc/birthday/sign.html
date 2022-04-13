@@ -25,8 +25,9 @@
       <div class="lc" id="lc">
       </div>
     </div>
-    <div class="cv">
+    <div class="control">
       <button class="nav" id="previous">Previous Page</button>
+      <div class="page-count" id="page"></div>
       <button class="nav" id="next">Next Page</button>
       <button class="save" id="export">Save Signature</button>
     </div>
@@ -53,6 +54,11 @@
         messagingSenderId: "1057828898157",
         appId: "1:1057828898157:web:bb508d4f65a5f865c60664"
       };
+
+      var imageBounds = {
+        x: 0, y: 0, width: 510, height: 575
+      };
+
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       var database = firebase.database();
@@ -76,21 +82,76 @@
         document.getElementById("title").innerHTML = "Sign " + name + "'s birthday card!";
       });
 
-      firebase.database().ref('/cards/' + id + '/pages').on('value', (snapshot) => {
+      async function removeImageBackground(image) {
+        const backgroundColor = { red: 255, green: 255, blue: 255 };
+        const threshold = 10;
+
+        const imageElement = new Image();
+        imageElement.src = image;
+        await new Promise(function(resolve) { imageElement.addEventListener('load', resolve); });
+
+        var canvas = document.createElement('canvas');
+        canvas.width = imageElement.naturalWidth;
+        canvas.height = imageElement.naturalHeight;
+
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(imageElement, 0, 0);
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < imageData.data.length; i += 4) {
+          const red = imageData.data[i];
+          const green = imageData.data[i + 1];
+          const blue = imageData.data[i + 2];
+          if (Math.abs(red - backgroundColor.red) < threshold &&
+            Math.abs(green - backgroundColor.green) < threshold &&
+            Math.abs(blue - backgroundColor.blue) < threshold) {
+            imageData.data[i + 3] = 0;
+          }
+        }
+
+        ctx.putImageData(imageData, 0, 0);
+        return canvas.toDataURL(`image/png`);
+      }
+
+      firebase.database().ref('/cards/' + id + '/pages').on('value', async (snapshot) => {
+        if (pages) {
+          console.log("CHANGED");
+          var tempImage = new Image();
+          console.log(pages[currentPage]);
+          tempImage.src = await removeImageBackground(lc.getImage({rect: imageBounds}).toDataURL());
+        }
+
         pages = snapshot.val();
         var backgroundImage = new Image();
         backgroundImage.crossOrigin = "anonymous";
         backgroundImage.onload = function() {
-          lc = LC.init(document.getElementById("lc"),
-          {
-            imageURLPrefix: 'https://richardld.github.io/img',
-            backgroundColor: '#ffffff00',
-            imageSize: {width: backgroundImage.width, height: backgroundImage.height},
-            backgroundShapes: [
-              LC.createShape(
-                'Image', {x: 0, y: 0, image: backgroundImage, scale: 1}),
-            ],
-          });
+          if (pages && tempImage && lc && backgroundImage) {
+            var backgroundImageObj = LC.createShape('Image', { x: 0, y: 0, image: backgroundImage, scale: 1});
+            var undostack = lc.undoStack.slice();
+            var redostack = lc.redoStack.slice();
+            console.log("Hello");
+            var snap = lc.getSnapshot();
+            snap.backgroundShapes.push(LC.shapeToJSON(backgroundImageObj));
+            console.log(snap.backgroundShapes);
+            lc.loadSnapshot(snap);
+            lc.undoStack = undostack;
+            lc.redostack = redostack;
+          } else {
+            lc = LC.init(document.getElementById("lc"),
+            {
+              imageURLPrefix: 'https://richardld.github.io/img',
+              backgroundColor: '#ffffff00',
+              imageSize: {width: backgroundImage.width, height: backgroundImage.height},
+              backgroundShapes: !pages || !tempImage ? [
+                LC.createShape(
+                  'Image', {x: 0, y: 0, image: backgroundImage, scale: 1})
+              ] : [
+                LC.createShape(
+                  'Image', {x: 0, y: 0, image: backgroundImage, scale: 1}),
+                LC.createShape(
+                  'Image', {x: 0, y: 0, image: tempImage, scale: 1}),
+              ],
+            });
+          }
           /*var unsubscribe = lc.on('drawingChange', function() {
             console.log('hellow');
             pages[currentPage] = lc.getImage({rect: imageBounds}).toDataURL();
@@ -100,6 +161,7 @@
           });*/
         }
         backgroundImage.src = pages[currentPage];
+        document.getElementById("page").innerHTML = currentPage + 1 + " of " + pages.length;
       });
 
       var lc;
@@ -115,15 +177,12 @@
           ]
         })
         document.addEventListener('keydown', function(event) {
-          if (event.ctrlKey && event.key === 'z') {
+          if ((event.ctrlKey && event.key === 'z') || (event.metaKey && event.key === 'z')) {
             lc.undo();
           }
         });
         $("#previous").prop("disabled",true);
-        var imageBounds = {
-          x: 0, y: 0, width: 510, height: 575
-        };
-        
+
         /*var unsubscribe = lc.on('drawingChange', function() {
           console.log('hellow');
           pages[currentPage] = lc.getImage({rect: imageBounds}).toDataURL();
@@ -177,6 +236,7 @@
             });*/
           }
           backgroundImage.src = pages[currentPage];
+          document.getElementById("page").innerHTML = currentPage + 1 + " of " + pages.length;
         });
 
         $('#previous').click(function(e) {
@@ -203,6 +263,7 @@
             });
           }
           backgroundImage.src = pages[currentPage];
+          document.getElementById("page").innerHTML = currentPage + 1 + " of " + pages.length;
         });
       });
       $('<p>').attr('id', 'blurb').add("<a href=" + window.location.href.substring(0, -11) + "card.html?id=" + id + ">View the card!</a>").appendTo('#link');

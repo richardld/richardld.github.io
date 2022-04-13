@@ -23,6 +23,13 @@ div.cv {
   text-align: center;
 }
 
+.control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 h1 {
   text-align: center;
   font-family: 'Dancing Script', cursive;
@@ -52,4 +59,13 @@ button.save:hover {
 
 button.nav:hover {
   background-color: lightgrey;
+}
+
+.page-count {
+  font-family: 'Dancing Script', cursive;
+  font-size: 20px;
+  margin: 2vh;
+  margin-left: 0px;
+  margin-right: 0px;
+  vertical-align: middle;
 }
