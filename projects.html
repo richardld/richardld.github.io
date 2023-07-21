@@ -316,11 +316,15 @@
       padding-right: 9px;
       background-color: #f1f8ff;
       color: #0366d6;
-      text-align: center;
+      text-align: left;
       margin: 5px;
       margin-left: 0px;
       margin-right: 0px;
       border-radius: 13px;  
+      flex-grow: 0;
+      height: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     
     .scrollitem {
@@ -372,7 +376,6 @@
     <div class="topnav">
       <a href="index.html">Home</a>
       <a class="active" href="projects.html">Projects</a>
-      <a href="resume.html">Resume</a>
       <a href="contact.html">About me</a>
       <a href="misc.html">Misc</a>
     </div> 
@@ -385,6 +388,58 @@
             <p class='description'>Create signable digital birthday cards.</p>
             <div class='horizontal'>
               <p class='code'>web</p>
+            </div>
+          </div>
+
+          <div class="greybackground">
+            <div class="scrollitem" onclick="clickDiv('https://cartesan.app')">
+              <h3>3D Startup</h3>
+              <p class='description'>Videos to 3D content. Founded company.</p>
+              <div class='horizontal'>
+                <p class='code'>ai</p>
+                <p class='code'>founder</p>
+                <p class='code'>startup</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="greybackground">
+            <div class="scrollitem" onclick="clickDiv('https://game-dxp.pages.dev')">
+              <h3>Local Game</h3>
+              <p class='description'>Infinite real world RPG. Also LLMs.</p>
+              <div class='horizontal'>
+                <p class='code'>game</p>
+                <p class='code'>web</p>
+                <p class='code'>ai</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="scrollitem" onclick="clickDiv('https://richardliu.work')">
+            <h3>Richard's Portfolio 2.0</h3>
+            <p class='description'>The replacement. In development.</p>
+            <div class='horizontal'>
+              <p class='code'>web</p>
+              <p class='code'>react</p>
+            </div>
+          </div>
+
+          <div class="scrollitem" onclick="openNewTab('https://scan.snapchat.com')">
+            <h3>Restaurant Scan<img class="tab-symbol" src="icons/link-new-tab.png"/></h3>
+            <p class='description'>Wrote some code for Snapchat.</p>
+            <div class='horizontal'>
+              <p class='code'>web</p>
+              <p class='code'>work</p>
+              <p class='code'>ai</p>
+            </div>
+          </div>
+
+          <div class="scrollitem" onclick="clickDiv('https://news-140.pages.dev/')">
+            <h3>Boring News App</h3>
+            <p class='description'>A boring app for news. Doesn't work.</p>
+            <div class='horizontal'>
+              <p class='code'>web</p>
+              <p class='code'>react</p>
             </div>
           </div>
           
@@ -549,7 +604,7 @@
         <div class='url-bar'>
           <p class='url' id="url">https://richardld.github.io/misc/birthday</p>
         </div>
-        <iframe id="display" src="https://richardld.github.io/misc/birthday"></iframe>
+        <iframe id="display" src="https://richardld.github.io/misc/birthday" allow="geolocation 'self' https://game-dxp.pages.dev"></iframe>
       </div>
     </div>
   </div>

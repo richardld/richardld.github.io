@@ -14,8 +14,8 @@ function preload() {
   linkedin = loadImage("icons/linkedin.png");
   github = loadImage("icons/github.png");
   
-  orbit1 = [[javascript, "I have 2+ years of JavaScript experience! I've used JavaScript to create many websites, including this one."], [html5, "I have 3+ years of HTML5 experience! Check out the projects tab to see some websites I have made."], [java, "I have 5+ years of Java experience! I've used Java to create many programs and publish an Android app."], [python, "I have 3+ years of Python experience! I've used it to create programs for tax analysis and more."]];
-  orbit2 = [[cal, "I'm currently a student at the University of California, Berkeley!"], [computerscience, "I'm an intended computer science major in the College of Letters and Sciences at Berkeley."], [westwood, "I graduated from Westwood High School, located in Austin, TX."], [cat, "I have a cat!"], [linkedin, "My LinkedIn can be found at linkedin.com/in/richardld."], [github, "My GitHub can be found at github.com/richardld."]];
+  orbit1 = [[javascript, "I use a lot of JavaScript. Often with React/Next.js."], [html5, "I've made a few dozen websites, like a birthday card maker."], [java, "Me and Java are good friends."], [python, "Python is my favorite. When I write code I sometimes use python."]];
+  orbit2 = [[cal, "I graduated from University of California, Berkeley. Go bears!"], [computerscience, "I'm a Computer Science and Data Science major."], [westwood, "I graduated from Westwood High School, located in Austin, TX."], [cat, "I have a cat!"], [linkedin, "My LinkedIn can be found at linkedin.com/in/richardld."], [github, "My GitHub can be found at github.com/richardld."]];
 }
 
 function setup() {
